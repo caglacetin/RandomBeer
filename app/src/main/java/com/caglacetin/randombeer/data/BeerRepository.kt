@@ -1,6 +1,7 @@
 package com.caglacetin.randombeer.data
 
 import com.caglacetin.randombeer.common.Resource
+import com.caglacetin.randombeer.common.map
 import com.caglacetin.randombeer.data.response.BeerData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -13,9 +14,11 @@ class BeerRepository @Inject constructor(
   private val ioDispatcher: CoroutineContext
 ) {
 
-  suspend fun fetchBeer(): Flow<Resource<List<BeerData>>> {
+  suspend fun fetchBeer(): Flow<Resource<BeerData>> {
     return flow {
-      emit(remoteRepository.fetchRandomBeer())
+      emit(remoteRepository.fetchRandomBeer().map {
+        it.first()
+      })
     }.flowOn(ioDispatcher)
   }
 
