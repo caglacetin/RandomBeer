@@ -12,7 +12,7 @@ class FetchRandomBeer @Inject constructor(
   private val repository: BeerRepository,
   private val mapper: BeerMapper
 ) {
-  suspend fun fetchImages(): Flow<Resource<BeerItem>> =
+  suspend fun fetchBeer(): Flow<Resource<BeerItem>> =
     repository.fetchBeer().map { resource ->
       resource.map { response ->
         mapper.mapFrom(response)

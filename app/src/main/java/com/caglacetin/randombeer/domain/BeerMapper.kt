@@ -9,6 +9,7 @@ class BeerMapper @Inject constructor() : Mapper<BeerData, BeerItem> {
 
   override fun mapFrom(beerData: BeerData): BeerItem =
       BeerItem(
-        id = beerData.id
+        id = beerData.id,
+        name = beerData.name
       )
 }
