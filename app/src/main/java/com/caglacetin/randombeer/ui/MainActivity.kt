@@ -38,8 +38,8 @@ class MainActivity : BaseActivity() {
     when (status) {
       is Loading -> MainViewState(Loading)
       is Success -> {
-        binding.text.text = status.data.name
         MainViewState(Success(status.data))
+        binding.beerViewState = BeerViewState(status.data)
       }
       is DataError -> MainViewState(DataError(status.exception))
     }

@@ -4,7 +4,10 @@ data class BeerViewState(
   val beerItem: BeerItem
 ) {
 
-  fun getBeerName(): String {
-    return beerItem.name
-  }
+  fun getBeerName() = beerItem.name
+
+  fun getTagline() = beerItem.tagline
+
+  fun getImageUrl() = beerItem.image
+
 }
