@@ -20,39 +20,7 @@ class MainActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     viewModel.fetchRandomBeer()
-    //listenSliders()
-    //updateTaglineVisibility()
-
   }
-
-  private fun updateTaglineVisibility() {
-    with(binding) {
-     /* ivBeerImage.setOnClickListener {
-        if(tvBeerTagline.isVisible) {
-          tvBeerTagline.visibility = GONE
-          etTaglineColor.visibility = GONE
-          etTaglineSize.visibility = GONE
-        } else {
-          tvBeerTagline.visibility = VISIBLE
-          etTaglineColor.visibility = VISIBLE
-          etTaglineSize.visibility = VISIBLE
-        }
-      }*/
-    }
-  }
-
-
-  //TODO: if image url null, show text message to user.
-
-  /*private fun listenSliders() {
-    binding.sliderImageRadius.addOnChangeListener { slider, value, fromUser ->
-      val shape = binding.ivBeerImage.shapeAppearanceModel.toBuilder()
-        .setAllCornerSizes(value)
-        .build()
-
-      binding.ivBeerImage.shapeAppearanceModel = shape
-    }
-  }*/
 
   override fun initViewBinding() {
     binding = ActivityMainBinding.inflate(layoutInflater)
