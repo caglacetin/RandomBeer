@@ -2,7 +2,6 @@ package com.caglacetin.randombeer.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.caglacetin.randombeer.R.layout
 import com.caglacetin.randombeer.common.Resource
 import com.caglacetin.randombeer.common.Resource.DataError
 import com.caglacetin.randombeer.common.Resource.Loading
@@ -21,7 +20,39 @@ class MainActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     viewModel.fetchRandomBeer()
+    //listenSliders()
+    //updateTaglineVisibility()
+
   }
+
+  private fun updateTaglineVisibility() {
+    with(binding) {
+     /* ivBeerImage.setOnClickListener {
+        if(tvBeerTagline.isVisible) {
+          tvBeerTagline.visibility = GONE
+          etTaglineColor.visibility = GONE
+          etTaglineSize.visibility = GONE
+        } else {
+          tvBeerTagline.visibility = VISIBLE
+          etTaglineColor.visibility = VISIBLE
+          etTaglineSize.visibility = VISIBLE
+        }
+      }*/
+    }
+  }
+
+
+  //TODO: if image url null, show text message to user.
+
+  /*private fun listenSliders() {
+    binding.sliderImageRadius.addOnChangeListener { slider, value, fromUser ->
+      val shape = binding.ivBeerImage.shapeAppearanceModel.toBuilder()
+        .setAllCornerSizes(value)
+        .build()
+
+      binding.ivBeerImage.shapeAppearanceModel = shape
+    }
+  }*/
 
   override fun initViewBinding() {
     binding = ActivityMainBinding.inflate(layoutInflater)
@@ -38,6 +69,9 @@ class MainActivity : BaseActivity() {
     when (status) {
       is Loading -> MainViewState(Loading)
       is Success -> {
+        binding.cvBeerName.setTextTitle(status.data.name.orEmpty())
+        binding.cvBeerTagline.setTextTitle(status.data.tagline)
+        binding.cvImage.setRadiusToImage(status.data.image)
         MainViewState(Success(status.data))
         binding.beerViewState = BeerViewState(status.data)
       }

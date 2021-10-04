@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <declare-styleable name="CustomTextView">
+    <attr name="textTitle" format="string" />
+  </declare-styleable>
+
+  <declare-styleable name="RadiusImageView">
+    <attr name="radius" format="float" />
+  </declare-styleable>
+
+</resources>

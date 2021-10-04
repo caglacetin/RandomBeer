@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_radius"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/radius"
+      android:layout_margin="@dimen/dp_16"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"/>
+
+  <com.google.android.material.slider.Slider
+      android:id="@+id/slider_image_radius"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:valueFrom="@dimen/radius_from"
+      android:valueTo="@dimen/radius_to"
+      android:layout_marginStart="@dimen/dp_16"
+      app:layout_constraintStart_toEndOf="@+id/tv_radius"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_width"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/set_width"
+      android:layout_margin="@dimen/dp_16"
+      app:layout_constraintTop_toTopOf="@id/slider_image_width"
+      app:layout_constraintTop_toBottomOf="@+id/tv_radius"
+      app:layout_constraintStart_toStartOf="parent"/>
+
+  <com.google.android.material.slider.Slider
+      android:id="@+id/slider_image_width"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:valueFrom="50"
+      android:valueTo="500"
+      android:value="300"
+      android:layout_marginStart="@dimen/dp_16"
+      app:layout_constraintStart_toEndOf="@+id/tv_width"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/slider_image_radius"/>
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_height"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/set_height"
+      android:layout_margin="@dimen/dp_16"
+      app:layout_constraintTop_toTopOf="@id/slider_image_height"
+      app:layout_constraintTop_toBottomOf="@+id/tv_width"
+      app:layout_constraintStart_toStartOf="parent"/>
+
+  <com.google.android.material.slider.Slider
+      android:id="@+id/slider_image_height"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:valueFrom="50"
+      android:valueTo="500"
+      android:value="300"
+      android:layout_marginStart="@dimen/dp_16"
+      app:layout_constraintStart_toEndOf="@+id/tv_height"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/slider_image_width"/>
+
+  <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/siv_beer_image"
+      tools:src="@tools:sample/backgrounds/scenic"
+      android:layout_width="300dp"
+      android:layout_height="300dp"
+      android:scaleType="centerCrop"
+      android:layout_margin="@dimen/dp_16"
+      app:layout_constraintTop_toBottomOf="@+id/slider_image_height"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_error_message"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/there_is_no_image"
+      app:layout_constraintTop_toTopOf="parent"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

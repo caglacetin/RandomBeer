@@ -1,3 +1,10 @@
 <resources>
   <string name="app_name">Random Beer</string>
+  <string name="enter_text_size">Enter text size</string>
+  <string name="enter_text_color">Enter text color</string>
+  <string name="there_is_no_image">There is no image url.</string>
+  <string name="radius">Set Radius</string>
+  <string name="set_width">Set Width</string>
+  <string name="set_height">Set Height</string>
+
 </resources>

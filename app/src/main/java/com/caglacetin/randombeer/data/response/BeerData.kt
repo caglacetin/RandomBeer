@@ -6,5 +6,5 @@ data class BeerData(
   val name: String,
   val tagline: String,
   @Json(name = "image_url")
-  val imageUrl: String
+  val imageUrl: String?
 )
