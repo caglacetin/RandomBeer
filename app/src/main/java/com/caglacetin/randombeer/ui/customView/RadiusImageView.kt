@@ -21,6 +21,9 @@ class RadiusImageView @JvmOverloads constructor(
   private var widthSlider: Slider
   private var beerImage: ShapeableImageView
   private var errorMessage: TextView
+  private var tvRadius: TextView
+  private var tvHeight: TextView
+  private var tvWidth: TextView
 
   private var imageRadius: Float = 0f
     set(value) {
@@ -47,6 +50,9 @@ class RadiusImageView @JvmOverloads constructor(
     widthSlider = findViewById(R.id.slider_image_width)
     beerImage = findViewById(R.id.siv_beer_image)
     errorMessage = findViewById(R.id.tv_error_message)
+    tvRadius = findViewById(R.id.tv_radius)
+    tvHeight = findViewById(R.id.tv_height)
+    tvWidth = findViewById(R.id.tv_width)
 
     val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RadiusImageView)
     imageRadius = typedArray.getFloat(R.styleable.RadiusImageView_radius, 0f)
@@ -88,6 +94,9 @@ class RadiusImageView @JvmOverloads constructor(
       heightSlider.visibility = GONE
       widthSlider.visibility = GONE
       beerImage.visibility = GONE
+      tvRadius.visibility = GONE
+      tvHeight.visibility = GONE
+      tvWidth.visibility = GONE
       errorMessage.visibility = visibility
     } else {
       Glide.with(context)

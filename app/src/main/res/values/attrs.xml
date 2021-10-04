@@ -3,6 +3,7 @@
 
   <declare-styleable name="CustomTextView">
     <attr name="textTitle" format="string" />
+    <attr name="textColor" format="string" />
   </declare-styleable>
 
   <declare-styleable name="RadiusImageView">

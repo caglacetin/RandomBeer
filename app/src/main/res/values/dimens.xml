@@ -3,4 +3,5 @@
   <dimen name="dp_16">16dp</dimen>
   <dimen name="radius_from">20</dimen>
   <dimen name="radius_to">200</dimen>
+  <dimen name="slider_width">120dp</dimen>
 </resources>
