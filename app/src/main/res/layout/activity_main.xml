@@ -14,61 +14,68 @@
         />
   </data>
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      tools:context=".ui.MainActivity"
-      android:padding="@dimen/dp_16">
+      android:fillViewport="true">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        tools:text="@tools:sample/lorem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        tools:visibility="visible"
-        app:visibleIf="@{mainViewState.shouldShowErrorMessage}"
-        android:text="@{mainViewState.errorMessage.toString()}"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        tools:visibility="visible"
-        app:visibleIf="@{mainViewState.isLoading}"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <com.caglacetin.randombeer.ui.customView.CustomTextView
-        android:id="@+id/cv_beer_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:textTitle="Beer Name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:padding="@dimen/dp_16"
+        tools:context=".ui.MainActivity">
 
-    <com.caglacetin.randombeer.ui.customView.CustomTextView
-        android:id="@+id/cv_beer_tagline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:textTitle="Beer Tagline"
-        app:layout_constraintTop_toBottomOf="@+id/cv_beer_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+      <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:text="@{mainViewState.errorMessage.toString()}"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:visibleIf="@{mainViewState.shouldShowErrorMessage}"
+          tools:text="@tools:sample/lorem"
+          tools:visibility="visible"/>
 
-    <com.caglacetin.randombeer.ui.customView.RadiusImageView
-        android:id="@+id/cv_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cv_beer_tagline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+      <ProgressBar
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:indeterminate="true"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:visibleIf="@{mainViewState.isLoading}"
+          tools:visibility="visible"/>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+      <com.caglacetin.randombeer.ui.customView.CustomTextView
+          android:id="@+id/cv_beer_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:textTitle="Beer Name"/>
+
+      <com.caglacetin.randombeer.ui.customView.CustomTextView
+          android:id="@+id/cv_beer_tagline"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cv_beer_name"
+          app:textTitle="Beer Tagline"/>
+
+      <com.caglacetin.randombeer.ui.customView.RadiusImageView
+          android:id="@+id/cv_image"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/cv_beer_tagline"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </ScrollView>
 
 </layout>

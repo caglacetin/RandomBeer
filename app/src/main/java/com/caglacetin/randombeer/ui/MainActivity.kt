@@ -37,14 +37,20 @@ class MainActivity : BaseActivity() {
     when (status) {
       is Loading -> MainViewState(Loading)
       is Success -> {
-        binding.cvBeerName.setTextTitle(status.data.name.orEmpty())
-        binding.cvBeerTagline.setTextTitle(status.data.tagline)
-        binding.cvImage.setRadiusToImage(status.data.image)
-        MainViewState(Success(status.data))
-        binding.beerViewState = BeerViewState(status.data)
+        val data = status.data
+        MainViewState(Success(data))
+        setUI(data)
       }
       is DataError -> MainViewState(DataError(status.exception))
     }
   }
 
+  private fun setUI(data: BeerItem) {
+    with(binding) {
+      cvBeerName.setTextTitle(data.name.orEmpty())
+      cvBeerTagline.setTextTitle(data.tagline)
+      cvImage.setRadiusToImage(data.image)
+      beerViewState = BeerViewState(data)
+    }
+  }
 }
